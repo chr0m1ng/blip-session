@@ -4,13 +4,13 @@ from setuptools import setup
 setup(
     name='blip_session',
     packages=['blip_session'],
-    version='v0.0.1',
+    version='v0.0.2',
     license='MIT',
     description='Provide a session class from requests module to use as a BLiP Session.',
     author='Gabriel Rodrigues dos Santos',
     author_email='gabrielr@take.net',
     url='https://github.com/chr0m1ng/blip-session',
-    download_url='https://github.com/chr0m1ng/blip-session/archive/v0.0.1.tar.gz',
+    download_url='https://github.com/chr0m1ng/blip-session/archive/v0.0.2.tar.gz',
     keywords=['lime', 'blip', 'chatbot'],
     install_requires=[
         'requests'
