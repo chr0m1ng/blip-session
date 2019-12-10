@@ -10,11 +10,12 @@ ID_KEY = 'id'
 
 class BlipSession:
 
-    def __init__(self, authorization):
+    def __init__(self, authorization=None):
         self.session = Session()
-        self.session.headers = {
-            'Authorization': authorization
-        }
+        if authorization is not None:
+            self.session.headers = {
+                'Authorization': authorization
+            }
 
     def process_command(self, command):
         if ID_KEY not in command:
