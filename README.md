@@ -12,6 +12,10 @@ from blip_session import BlipSession
 my_auth_key = 'Key sdasadsa='
 
 bs = BlipSession(my_auth_key)
+
+# Or passing an organization
+
+bs = BlipSession(my_auth_key, 'take')
 ```
 
 ### Methods
@@ -21,7 +25,7 @@ The following methods are provided
 #### send_command
 
 | Parameters | Type   |
-| ---------- | ------ |
+|------------|--------|
 | command    | `dict` |
 
 Fire and forget
@@ -45,7 +49,7 @@ bs.send_command(command)
 #### process_command
 
 | Parameters | Type   |
-| ---------- | ------ |
+|------------|--------|
 | command    | `dict` |
 
 Receive the response
@@ -91,7 +95,7 @@ print(tracks)
 #### force_command
 
 | Parameters    | Type    | Required |
-| ------------- | ------- | -------- |
+|---------------|---------|----------|
 | command       | `dict`  | yes      |
 | attempts      | `int`   | no       |
 | cooldown_time | `float` | no       |
@@ -130,7 +134,7 @@ print(list_response)
 #### send_message
 
 | Parameters | Type   |
-| ---------- | ------ |
+|------------|--------|
 | message    | `dict` |
 
 Fire and forget
