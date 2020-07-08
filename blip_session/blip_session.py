@@ -2,7 +2,7 @@ from requests import Session
 from time import sleep
 from uuid import uuid4
 
-IRIS_URL_BASE = 'https://msging.net'
+IRIS_URL_BASE = 'http.msging.net'
 COMMANDS_URL = '/commands'
 MESSAGES_URL = '/messages'
 ID_KEY = 'id'
@@ -10,19 +10,23 @@ ID_KEY = 'id'
 
 class BlipSession:
 
-    def __init__(self, authorization=None):
+    def __init__(self, authorization=None, organization=None):
         self.session = Session()
         if authorization is not None:
             self.session.headers = {
                 'Authorization': authorization
             }
+        if organization is not None:
+            self.iris = f'https://{organization}.{IRIS_URL_BASE}'
+        else:
+            self.iris = f'https://{IRIS_URL_BASE}'
 
     def process_command(self, command):
         if ID_KEY not in command:
             command[ID_KEY] = str(uuid4())
         try:
             command_res = self.session.post(
-                f'{IRIS_URL_BASE}{COMMANDS_URL}',
+                f'{self.iris}{COMMANDS_URL}',
                 json=command
             )
 
@@ -49,6 +53,6 @@ class BlipSession:
         if ID_KEY not in message:
             message[ID_KEY] = str(uuid4())
         session.post(
-            f'{IRIS_URL_BASE}{MESSAGES_URL}',
+            f'{self.iris}{MESSAGES_URL}',
             json=message
         )
