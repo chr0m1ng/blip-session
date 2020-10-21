@@ -1,4 +1,6 @@
 # Blip Session
+[![PyPI version](https://badge.fury.io/py/blip-session.svg)](https://badge.fury.io/py/blip-session)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/blip-session)
 
 Provide a `session` `class` from `requests` module to use as a BLiP Session.
 
